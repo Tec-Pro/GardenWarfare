@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20151016180754) do
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
-    t.string   "emial"
+    t.string   "email"
     t.string   "password"
     t.string   "provider"
     t.string   "uid"
