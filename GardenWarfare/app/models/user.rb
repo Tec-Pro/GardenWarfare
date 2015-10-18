@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
 	validates :password, presence: true
 	validates :name, presence: true
 	has_many :tokens
+  has_one :character
 
 	def self.from_omniauth(data) #{provider: 'face', iod: '12345', info: {email: '..', name: 'nombre'}}
       

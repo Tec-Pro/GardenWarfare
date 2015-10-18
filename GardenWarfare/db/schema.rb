@@ -11,10 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151016180754) do
+ActiveRecord::Schema.define(version: 20151018142623) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "characters", force: :cascade do |t|
+    t.string   "type"
+    t.integer  "money"
+    t.integer  "blueMoney"
+    t.integer  "strength"
+    t.integer  "vitality"
+    t.integer  "dexterity"
+    t.integer  "level"
+    t.float    "experience"
+    t.integer  "inventoryCapacity"
+    t.integer  "user_id"
+    t.string   "name"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  add_index "characters", ["user_id"], name: "index_characters_on_user_id", using: :btree
 
   create_table "tokens", force: :cascade do |t|
     t.string   "expires_at"
@@ -29,7 +47,7 @@ ActiveRecord::Schema.define(version: 20151016180754) do
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
-    t.string   "email"
+    t.string   "emial"
     t.string   "password"
     t.string   "provider"
     t.string   "uid"
@@ -37,5 +55,6 @@ ActiveRecord::Schema.define(version: 20151016180754) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "characters", "users"
   add_foreign_key "tokens", "users"
 end
