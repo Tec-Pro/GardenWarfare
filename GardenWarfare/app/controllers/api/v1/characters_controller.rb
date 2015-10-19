@@ -4,7 +4,7 @@ class Api::V1::CharactersController < ApplicationController
   before_action :set_character, only: [ :show,:update,:destroy ]
 
 
- def index
+  def index
     @characters = Character.all
   end
 
@@ -13,7 +13,9 @@ class Api::V1::CharactersController < ApplicationController
   end
 
   def create
-     @character = @current_user.character.new(my_character_params_create)
+     #@character = @current_user.character(my_character_params_create)
+     @character = Character.new(my_character_params_create);
+     @character.user = @current_user;
      @character.strength = 5;
      @character.vitality = 5;
      @character.dexterity = 5;
@@ -25,10 +27,8 @@ class Api::V1::CharactersController < ApplicationController
      if @character.save
       render "api/v1/characters/show" #ACA PASARIA A EL INVENTARIO
     else
-      render json: { errors: "error"}, status: :unprocessable_entity
-      
+      render json: { errors: "error"}, status: :unprocessable_entity   
     end
-
   end
 
   def update 

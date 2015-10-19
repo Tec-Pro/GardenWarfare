@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  type: 
+  defense: 1.5
+  attack: 1.5
+  evasion: 1.5
+  crit: 1.5
+  hit_chance: 1.5
+  life: 1.5
+
+two:
+  name: MyString
+  type: 
+  defense: 1.5
+  attack: 1.5
+  evasion: 1.5
+  crit: 1.5
+  hit_chance: 1.5
+  life: 1.5
