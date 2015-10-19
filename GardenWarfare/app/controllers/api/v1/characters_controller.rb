@@ -25,7 +25,7 @@ class Api::V1::CharactersController < ApplicationController
      @character.money = 200;
      @character.blueMoney = 0;
      if @character.save
-      render "api/v1/characters/show" #ACA PASARIA A EL INVENTARIO
+      render "api/v1/characters/show" 
     else
       render json: { errors: "error"}, status: :unprocessable_entity   
     end
@@ -33,7 +33,7 @@ class Api::V1::CharactersController < ApplicationController
 
   def update 
     @character.update(my_character_params_update)
-    render "api/v1/characters/show" #ACA IRIA LA PAGINA DE DONDE VENGA LA ACTUALZIACION, SE PUEDE DIVIDIR EN VARIOS METODOS
+    render "api/v1/characters/show" 
   end
 
   def destroy    
